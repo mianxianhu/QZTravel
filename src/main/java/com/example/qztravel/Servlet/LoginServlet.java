@@ -20,7 +20,12 @@ public class LoginServlet extends HttpServlet {
 
         UserDAO userDAO = new UserDAO();
 
-
+        if (userDAO.validateUser(username, password)) {
+            response.sendRedirect("welcome.jsp");
+        } else {
+            response.setContentType("text/html;charset=UTF-8");
+            response.getWriter().println("登录失败，请检查用户名和密码");
+        }
     }
 
     @Override
