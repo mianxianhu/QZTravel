@@ -8,9 +8,9 @@ import java.sql.Statement;
 public class CreateTable {
     public static void main(String[] args) {
         // 数据库连接信息
-        String url = "jdbc:mysql://localhost:3306/TravelWeb";
-        String user = "root";
-        String password = "1234";
+        String url = "jdbc:sqlserver://localhost:1433;databaseName=TravelUSER";
+        String user = "QZTW";
+        String password = "123";
 
         // SQL 语句：创建表
         String createTableSQL = "CREATE TABLE IF NOT EXISTS users (" +
@@ -20,7 +20,7 @@ public class CreateTable {
 
         try {
             // 1. 加载数据库驱动
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
         } catch (ClassNotFoundException e) {
             System.out.println("数据库驱动加载失败: " + e.getMessage());
             return;
