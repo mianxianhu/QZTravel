@@ -8,7 +8,7 @@ import java.sql.Statement;
 public class CreateTable {
     public static void main(String[] args) {
         // 数据库连接信息
-        String url = "jdbc:sqlserver://localhost:1433;databaseName=TravelUSER";
+        String url = "jdbc:sqlserver://localhost:1433;databaseName=Travel";
         String user = "QZTW";
         String password = "123";
 

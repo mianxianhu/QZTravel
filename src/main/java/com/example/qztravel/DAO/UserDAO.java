@@ -15,8 +15,8 @@ public class UserDAO {
         }
     }
 
-    // 假设数据库名为 TravelWeb，服务器地址为 localhost，端口为 1433，用户名和密码根据实际情况修改
-    private static final String JDBC_URL = "jdbc:sqlserver://localhost:1433;databaseName=TravelUSER";
+    // 假设数据库名为 TravelUSER，服务器地址为 localhost，端口为 1433
+    private static final String JDBC_URL = "jdbc:sqlserver://localhost:1433;databaseName=Travel";
     private static final String JDBC_USER = "QZTW";
     private static final String JDBC_PASSWORD = "123";
 
@@ -54,7 +54,6 @@ public class UserDAO {
             String sql = "SELECT * FROM users WHERE username =? AND password =?";
             try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
                 preparedStatement.setString(1, username);
-                // 假设密码已经加密，这里直接比较加密后的密码
                 preparedStatement.setString(2, password);
                 try (ResultSet resultSet = preparedStatement.executeQuery()) {
                     return resultSet.next();
