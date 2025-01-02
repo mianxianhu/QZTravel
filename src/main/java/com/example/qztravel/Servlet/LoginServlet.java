@@ -1,4 +1,6 @@
-package com.example.travelweb.Servlet;
+package com.example.qztravel.Servlet;
+
+import com.example.qztravel.DAO.UserDAO;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -24,12 +26,12 @@ public class LoginServlet extends HttpServlet {
 
         // 这里可以添加用户认证逻辑，比如和数据库中的用户信息进行比较
         // 为了简单起见，这里仅做简单的用户名和密码验证
-        if ("admin".equals(username) && "123456".equals(password)) {
-            // 登录成功，重定向到欢迎页面
-            response.getWriter().println("登录成功");
+        UserDAO userDAO = new UserDAO();
+        if (userDAO.checkUserCredentials(username, password)) {
+            response.sendRedirect("welcome.jsp");
         } else {
-            // 登录失败，重定向到登录页面，并添加错误信息
-            response.getWriter().println("登录失败，请检查用户名和密码");
+            response.setContentType("text/html;charset=UTF-8");
+            response.getWriter().println("登陆失败");
         }
     }
 
