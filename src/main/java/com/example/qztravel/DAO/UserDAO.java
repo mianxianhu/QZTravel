@@ -16,7 +16,7 @@ public class UserDAO {
     }
 
     // 假设数据库名为 TravelWeb，服务器地址为 localhost，端口为 1433，用户名和密码根据实际情况修改
-    private static final String JDBC_URL = "jdbc:sqlserver://localhost:1433;databaseName=TravelWeb";
+    private static final String JDBC_URL = "jdbc:sqlserver://localhost:1433;databaseName=TravelUSER";
     private static final String JDBC_USER = "QZTW";
     private static final String JDBC_PASSWORD = "123";
 
