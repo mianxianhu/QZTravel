@@ -1,4 +1,3 @@
-<jsp:useBean id="scenicSpot" scope="request" type="com.example.qztravel.Bean.ScenicSpotBean"/>
 <!-- scenicSpot.jsp -->
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
