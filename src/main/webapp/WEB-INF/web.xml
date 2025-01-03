@@ -6,5 +6,12 @@
     <welcome-file-list>
         <welcome-file>login.jsp</welcome-file>
     </welcome-file-list>
-
+    <servlet>
+        <servlet-name>ScenicSpotServlet</servlet-name>
+        <servlet-class>com.example.qztravel.Servlet.ScenicSpotServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ScenicSpotServlet</servlet-name>
+        <url-pattern>/scenicSpot</url-pattern>
+    </servlet-mapping>
 </web-app>

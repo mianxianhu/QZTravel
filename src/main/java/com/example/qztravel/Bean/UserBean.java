@@ -1,14 +1,16 @@
-package com.example.qztravel;
+package com.example.qztravel.Bean;
 
-public class User {
+import java.io.Serializable;
+
+public class UserBean implements Serializable {
     private int id;
     private String username;
     private String password;
 
-    public User() {
+    public UserBean() {
     }
 
-    public User(String username, String password) {
+    public UserBean(String username, String password) {
         this.username = username;
         this.password = password;
     }

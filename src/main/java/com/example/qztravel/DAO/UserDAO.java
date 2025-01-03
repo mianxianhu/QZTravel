@@ -14,7 +14,6 @@ public class UserDAO {
             e.printStackTrace();
         }
     }
-
     // 假设数据库名为 TravelUSER，服务器地址为 localhost，端口为 1433
     private static final String JDBC_URL = "jdbc:sqlserver://localhost:1433;databaseName=Travel";
     private static final String JDBC_USER = "QZTW";

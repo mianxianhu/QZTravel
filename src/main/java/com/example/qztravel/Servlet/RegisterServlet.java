@@ -1,7 +1,6 @@
 package com.example.qztravel.Servlet;
 
 import com.example.qztravel.DAO.UserDAO;
-import com.example.qztravel.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
