@@ -6,5 +6,12 @@
     <welcome-file-list>
         <welcome-file>login.jsp</welcome-file>
     </welcome-file-list>
-
+    <servlet>
+        <servlet-name>CommentServlet</servlet-name>
+        <servlet-class>com.example.qztravel.Servlet.user.CommentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CommentServlet</servlet-name>
+        <url-pattern>/Comment</url-pattern>
+    </servlet-mapping>
 </web-app>

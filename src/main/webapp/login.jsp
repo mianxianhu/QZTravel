@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login Page</title>
+    <title>用户登录</title>
 </head>
 <body>
 <h2>登录</h2>

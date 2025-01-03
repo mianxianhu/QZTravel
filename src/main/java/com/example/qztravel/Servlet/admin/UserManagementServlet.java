@@ -27,7 +27,6 @@ public class UserManagementServlet extends HttpServlet {
         UserDAO dao = new UserDAO();
         if ("add".equals(action)) {
             UserBean user = new UserBean();
-            user.setId(Integer.parseInt(request.getParameter("id")));
             user.setUsername(request.getParameter("username"));
             user.setPassword(request.getParameter("password"));
             dao.addUser(user);
