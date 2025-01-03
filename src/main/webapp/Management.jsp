@@ -11,6 +11,7 @@
     <title>管理</title>
 </head>
 <body>
+    <h1>欢迎，管理员！</h1>
     <a href="userManagement.jsp">用户管理</a><br/>
     <a href="scenicSpotManagement.jsp">景点管理</a><br/>
     <a href="ticketOrderManagement.jsp">门票管理</a><br/>
