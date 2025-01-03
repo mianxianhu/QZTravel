@@ -1,4 +1,4 @@
-package com.example.qztravel.Servlet;
+package com.example.qztravel.Servlet.user;
 
 import com.example.qztravel.DAO.UserDAO;
 
@@ -21,7 +21,7 @@ public class LoginServlet extends HttpServlet {
 
         UserDAO userDAO = new UserDAO();
         if (userDAO.checkUserCredentials(username, password)) {
-            response.sendRedirect("scenicSpot");
+            response.sendRedirect("scenicSpot.jsp");
         } else {
             response.setContentType("text/html;charset=UTF-8");
             response.getWriter().println("登陆失败");

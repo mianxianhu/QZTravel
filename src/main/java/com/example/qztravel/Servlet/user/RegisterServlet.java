@@ -1,4 +1,4 @@
-package com.example.qztravel.Servlet;
+package com.example.qztravel.Servlet.user;
 
 import com.example.qztravel.DAO.UserDAO;
 
