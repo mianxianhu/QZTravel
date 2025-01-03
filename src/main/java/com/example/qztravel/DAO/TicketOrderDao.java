@@ -8,6 +8,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import com.example.qztravel.Bean.TicketOrderBean;
 
 
@@ -56,21 +59,20 @@ public class TicketOrderDao {
 
     // 添加门票订单
     public void addTicketOrder(TicketOrderBean ticketOrder) {
-        String sql = "INSERT INTO ticket_orders (order_id, user_id, scenic_spot_id, order_time,quantity) VALUES (?,?,?,?,?)";
+        String sql = "INSERT INTO ticket_orders ( user_id, scenic_spot_id, order_time,quantity) VALUES (?,?,?,?)";
         try (Connection conn = getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setInt(1, ticketOrder.getOrderId());
-            stmt.setString(2, ticketOrder.getUserId());
-            stmt.setString(3, ticketOrder.getScenicSpotId());
-            stmt.setString(4, ticketOrder.getOrderTime());
-            stmt.setInt(5, ticketOrder.getQuantity());
+            stmt.setString(1, ticketOrder.getUserId());
+            stmt.setString(2, ticketOrder.getScenicSpotId());
+            stmt.setString(3, ticketOrder.getOrderTime());
+            stmt.setInt(4, ticketOrder.getQuantity());
             int rowsInserted = stmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-
+    private static final Logger logger = Logger.getLogger(UserDAO.class.getName());
     // 更新门票订单
     public void updateTicketOrder(TicketOrderBean ticketOrder) {
         String sql = "UPDATE ticket_orders SET user_id =?, scenic_spot_id =?, order_time =?, quantity =? WHERE order_id =?";
@@ -82,8 +84,10 @@ public class TicketOrderDao {
             pstmt.setInt(4, ticketOrder.getQuantity());
             pstmt.setInt(5, ticketOrder.getOrderId());
             pstmt.executeUpdate();
+            logger.log(Level.INFO, "User with id:" + ticketOrder.getOrderId() + " has been updated successfully.");
         } catch (SQLException e) {
             e.printStackTrace();
+            logger.log(Level.INFO, "failed" );
         }
     }
 

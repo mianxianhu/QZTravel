@@ -35,6 +35,7 @@ public class TicketOrderManagementServlet extends HttpServlet {
             dao.addTicketOrder(ticketOrder);
         } else if ("update".equals(action)) {
             TicketOrderBean ticketOrder = new TicketOrderBean();
+            ticketOrder.setOrderId(Integer.parseInt(request.getParameter("orderId")));
             ticketOrder.setUserId(request.getParameter("userId"));
             ticketOrder.setScenicSpotId(request.getParameter("scenicSpotId"));
             ticketOrder.setOrderTime(request.getParameter("orderTime"));
