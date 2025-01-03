@@ -103,17 +103,17 @@ public class UserDAO {
         String sql = "UPDATE users SET username =?, password =? WHERE id =?";
         try (Connection conn = DriverManager.getConnection(JDBC_URL, JDBC_USER, JDBC_PASSWORD);
              PreparedStatement stmt = conn.prepareStatement(sql)) {
-
             stmt.setString(1, user.getUsername());
             stmt.setString(2, user.getPassword());
             stmt.setInt(3, user.getId());
             stmt.executeUpdate();
-            logger.log(Level.INFO, "User with id " + user.getId() +" username "+user.getUsername()+" password "+user.getPassword() + " has been updated successfully.");
-
+            logger.log(Level.INFO, "User with id:" + user.getId() + " has been updated successfully.");
         } catch (SQLException e) {
             logger.log(Level.SEVERE, "Error updating user with id " + user.getId(), e);
         }
     }
+
+
     public void deleteUser(int id) {
         String sql = "DELETE FROM users WHERE id =?" ;
         try (Connection conn = DriverManager.getConnection(JDBC_URL, JDBC_USER, JDBC_PASSWORD);

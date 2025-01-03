@@ -34,7 +34,7 @@ public class ScenicSpotDao {
     // 查询所有景区信息
     public List<ScenicSpotBean> getAllScenicSpots() {
         List<ScenicSpotBean> scenicSpots = new ArrayList<>();
-        String sql = "SELECT name, description, address, opentime FROM scenic_spots";
+        String sql = "SELECT name, description, address, openTime FROM scenic_spots";
         try (Connection conn = getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql);
              ResultSet rs = pstmt.executeQuery()) {
@@ -43,7 +43,7 @@ public class ScenicSpotDao {
                 scenicSpot.setName(rs.getString("name"));
                 scenicSpot.setDescription(rs.getString("description"));
                 scenicSpot.setAddress(rs.getString("address"));
-                scenicSpot.setOpenTime(rs.getString("open_time"));
+                scenicSpot.setOpenTime(rs.getString("openTime"));
                 scenicSpots.add(scenicSpot);
             }
         } catch (SQLException e) {
@@ -55,7 +55,7 @@ public class ScenicSpotDao {
 
     // 添加景区信息
     public void addScenicSpot(ScenicSpotBean scenicSpot) {
-        String sql = "INSERT INTO scenic_spots (name, description, address, opentime) VALUES (?,?,?,?)";
+        String sql = "INSERT INTO scenic_spots (name, description, address, openTime) VALUES (?,?,?,?)";
         try (Connection conn = getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, scenicSpot.getName());
@@ -71,7 +71,7 @@ public class ScenicSpotDao {
 
     // 更新景区信息
     public void updateScenicSpot(ScenicSpotBean scenicSpot) {
-        String sql = "UPDATE scenic_spots SET description =?, address =?, opentime =? WHERE name =?";
+        String sql = "UPDATE scenic_spots SET description =?, address =?, openTime =? WHERE name =?";
         try (Connection conn = getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, scenicSpot.getDescription());

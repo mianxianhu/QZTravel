@@ -23,17 +23,17 @@ public class UserManagementServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        doGet(request, response);
         String action = request.getParameter("action");
         UserDAO dao = new UserDAO();
         if ("add".equals(action)) {
             UserBean user = new UserBean();
+            user.setId(Integer.parseInt(request.getParameter("id")));
             user.setUsername(request.getParameter("username"));
             user.setPassword(request.getParameter("password"));
             dao.addUser(user);
         } else if ("update".equals(action)) {
             UserBean user = new UserBean();
-            user.setId(Integer.parseInt(request.getParameter("Id")));
+            user.setId(Integer.parseInt(request.getParameter("id")));
             user.setUsername(request.getParameter("username"));
             user.setPassword(request.getParameter("password"));
             dao.updateUser(user);
@@ -41,5 +41,6 @@ public class UserManagementServlet extends HttpServlet {
             int userId = Integer.parseInt(request.getParameter("userId"));
             dao.deleteUser(userId);
         }
+        doGet(request, response);
     }
 }
