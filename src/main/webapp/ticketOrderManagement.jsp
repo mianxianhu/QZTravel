@@ -7,16 +7,16 @@
 </head>
 <body>
 <h1>门票订单管理</h1>
-<form action="TicketOrderManagement" method="post">
+<form action="ticketOrderManagement" method="post">
   <input type="hidden" name="action" value="add">
-  <label for="addUserId">用户ID:</label>
-  <input type="text" id="addUserId" name="userId"><br>
-  <label for="addScenicSpotId">景点ID:</label>
-  <input type="text" id="addScenicSpotId" name="scenicSpotId"><br>
-  <label for="addOrderTime">订单时间:</label>
-  <input type="text" id="addOrderTime" name="orderTime"><br>
-  <label for="addQuantity">数量:</label>
-  <input type="text" id="addQuantity" name="quantity"><br>
+  <label for="userId">用户ID:</label>
+  <input type="text" id="userId" name="userId"><br>
+  <label for="scenicSpotId">景点ID:</label>
+  <input type="text" id="scenicSpotId" name="scenicSpotId"><br>
+  <label for="orderTime">订单时间:</label>
+  <input type="text" id="orderTime" name="orderTime"><br>
+  <label for="quantity">数量:</label>
+  <input type="text" id="quantity" name="quantity"><br>
   <input type="submit" value="添加订单">
 </form>
 <table border="1">
@@ -38,20 +38,20 @@
     <td><%= ticketOrder.getOrderTime() %></td>
     <td><%= ticketOrder.getQuantity() %></td>
     <td>
-      <form action="TicketOrderManagement" method="post">
+      <form action="ticketOrderManagement" method="post">
         <input type="hidden" name="action" value="update">
         <input type="hidden" name="orderId" value="<%= ticketOrder.getOrderId() %>">
-        <label for="updateUserId">用户ID:</label>
-        <input type="text" id="updateUserId" name="userId" value="<%= ticketOrder.getUserId() %>"><br>
-        <label for="updateScenicSpotId">景点ID:</label>
-        <input type="text" id="updateScenicSpotId" name="scenicSpotId" value="<%= ticketOrder.getScenicSpotId() %>"><br>
-        <label for="updateOrderTime">订单时间:</label>
-        <input type="text" id="updateOrderTime" name="orderTime" value="<%= ticketOrder.getOrderTime() %>"><br>
-        <label for="updateQuantity">数量:</label>
-        <input type="text" id="updateQuantity" name="quantity" value="<%= ticketOrder.getQuantity() %>"><br>
+        <label for="userId">用户ID:</label>
+        <input type="text" id="userId" name="userId" value="<%= ticketOrder.getUserId() %>"><br>
+        <label for="scenicSpotId">景点ID:</label>
+        <input type="text" id="scenicSpotId" name="scenicSpotId" value="<%= ticketOrder.getScenicSpotId() %>"><br>
+        <label for="orderTime">订单时间:</label>
+        <input type="text" id="orderTime" name="orderTime" value="<%= ticketOrder.getOrderTime() %>"><br>
+        <label for="quantity">数量:</label>
+        <input type="text" id="quantity" name="quantity" value="<%= ticketOrder.getQuantity() %>"><br>
         <input type="submit" value="更新">
       </form>
-      <form action="TicketOrderManagement" method="post">
+      <form action="ticketOrderManagement" method="post">
         <input type="hidden" name="action" value="delete">
         <input type="hidden" name="orderId" value="<%= ticketOrder.getOrderId() %>">
         <input type="submit" value="删除">

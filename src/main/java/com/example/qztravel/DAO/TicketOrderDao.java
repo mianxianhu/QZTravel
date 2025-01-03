@@ -12,17 +12,9 @@ import com.example.qztravel.Bean.TicketOrderBean;
 
 
 public class TicketOrderDao {
-    static {
-        try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private static final String JDBC_URL = "jdbc:sqlserver://localhost:1433;databaseName=Travel";
-    private static final String JDBC_USER = "QZTW";
-    private static final String JDBC_PASSWORD = "123";
+    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/qztravel_db";
+    private static final String JDBC_USER = "root";
+    private static final String JDBC_PASSWORD = "root";
 
 
     // 获取数据库连接
@@ -56,14 +48,14 @@ public class TicketOrderDao {
 
     // 添加门票订单
     public void addTicketOrder(TicketOrderBean ticketOrder) {
-        String sql = "INSERT INTO ticket_orders (order_id, user_id, scenic_spot_id, order_time) VALUES (?,?,?,?)";
+        String sql = "INSERT INTO ticket_orders (user_id, scenic_spot_id, order_time, quantity) VALUES (?,?,?,?)";
         try (Connection conn = getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setInt(1, ticketOrder.getOrderId());
-            stmt.setString(2, ticketOrder.getUserId());
-            stmt.setString(3, ticketOrder.getScenicSpotId());
-            stmt.setString(4, ticketOrder.getOrderTime());
-            int rowsInserted = stmt.executeUpdate();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, ticketOrder.getUserId());
+            pstmt.setString(2, ticketOrder.getScenicSpotId());
+            pstmt.setString(3, ticketOrder.getOrderTime());
+            pstmt.setInt(4, ticketOrder.getQuantity());
+            pstmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }

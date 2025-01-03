@@ -5,7 +5,7 @@
 </head>
 <body>
 <h1>欢迎管理员</h1>
-<form action="AdminLogin" method="post">
+<form >
     <label for="username">账号:</label>
     <input type="text" id="username" name="username"><br><br>
     <label for="password">密码:</label>

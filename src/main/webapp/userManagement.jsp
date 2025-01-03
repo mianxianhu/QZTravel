@@ -7,19 +7,21 @@
 </head>
 <body>
 <h1>用户管理</h1>
-<form action="UserManagement" method="post">
+<form action="userManagement" method="post">
     <input type="hidden" name="action" value="add">
-    <label for="AddUsername">用户名:</label>
-    <input type="text" id="AddUsername" name="username"><br>
-    <label for="AddPassword">密码:</label>
-    <input type="password" id="AddPassword" name="password"><br>
+    <label for="username">用户名:</label>
+    <input type="text" id="username" name="username"><br>
+    <label for="password">密码:</label>
+    <input type="password" id="password" name="password"><br>
+    <label for="email">邮箱:</label>
+    <input type="text" id="email" name="email"><br>
     <input type="submit" value="添加用户">
 </form>
 <table border="1">
     <tr>
-        <th>id</th>
         <th>用户名</th>
         <th>密码</th>
+        <th>邮箱</th>
         <th>操作</th>
     </tr>
     <%
@@ -28,11 +30,10 @@
             for (UserBean user : users) {
     %>
     <tr>
-        <td><%= user.getId() %></td>
         <td><%= user.getUsername() %></td>
         <td><%= user.getPassword() %></td>
         <td>
-            <form action="UserManagement" method="post">
+            <form action="userManagement" method="post">
                 <input type="hidden" name="action" value="update">
                 <input type="hidden" name="Id" value="<%= user.getId() %>">
                 <label for="username">用户名:</label>
@@ -41,7 +42,7 @@
                 <input type="password" id="password" name="password" value="<%= user.getPassword() %>"><br>
                 <input type="submit" value="更新">
             </form>
-            <form action="UserManagement" method="post">
+            <form action="userManagement" method="post">
                 <input type="hidden" name="action" value="delete">
                 <input type="hidden" name="userId" value="<%= user.getId() %>">
                 <input type="submit" value="删除">
